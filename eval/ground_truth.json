@@ -2,141 +2,101 @@
   {
     "id": 1,
     "question": "最近30天mining.com上关于铜矿的主要报道有哪些？",
-    "source_type": "news",
-    "keywords": ["copper", "mining", "mine"],
     "expected_answer": "有关铜矿开采、产量和价格的新闻报道"
   },
   {
     "id": 2,
-    "question": "中国稀土出口管制最新政策是什么？",
-    "source_type": "policy",
-    "keywords": ["稀土", "出口", "管制", "政策"],
-    "expected_answer": "中国稀土集团的出口管制和监管政策"
+    "question": "EU critical raw materials policy",
+    "expected_answer": "欧盟关键原材料相关政策"
   },
   {
     "id": 3,
-    "question": "LME铜价最近一周的走势如何？",
-    "source_type": "price",
-    "keywords": ["copper", "LME", "price"],
-    "expected_answer": "LME铜期货的近期收盘价格数据"
+    "question": "What is the latest lithium price trend on the LME/SHFE?",
+    "expected_answer": "Lithium carbonate price movements and market trends"
   },
   {
     "id": 4,
-    "question": "澳洲关键矿产战略有哪些新动向？",
-    "source_type": "policy",
-    "keywords": ["critical minerals", "Australia", "strategy", "DISR"],
-    "expected_answer": "澳洲DISR的关键矿产战略和政策更新"
+    "question": "中国稀土出口管制最新政策",
+    "expected_answer": "中国稀土出口管制相关政策法规"
   },
   {
     "id": 5,
-    "question": "镍价近期变化趋势",
-    "source_type": "price",
-    "keywords": ["nickel", "LME", "price"],
-    "expected_answer": "LME镍期货价格近期数据"
+    "question": "LME铜价最近走势如何？",
+    "expected_answer": "LME铜期货价格走势及影响因素"
   },
   {
     "id": 6,
-    "question": "矿业公司并购新闻",
-    "source_type": "news",
-    "keywords": ["merger", "acquisition", "mining"],
-    "expected_answer": "矿业公司并购相关新闻报道"
+    "question": "Recent nickel mining news and production updates",
+    "expected_answer": "Nickel mining operations, production news and market developments"
   },
   {
     "id": 7,
-    "question": "铁矿石价格近期走势",
-    "source_type": "price",
-    "keywords": ["iron_ore", "DCE", "price"],
-    "expected_answer": "铁矿石期货价格数据"
+    "question": "澳大利亚锂矿出口政策最新动态",
+    "expected_answer": "澳大利亚锂矿出口和矿业投资政策"
   },
   {
     "id": 8,
-    "question": "中国稀土集团最近发布了什么公告？",
-    "source_type": "policy",
-    "keywords": ["稀土", "公告", "notice"],
-    "expected_answer": "中国稀土集团发布的通知和公告"
+    "question": "IEA critical minerals outlook 2026",
+    "expected_answer": "国际能源署关键矿产展望报告"
   },
   {
     "id": 9,
-    "question": "锌价最新行情",
-    "source_type": "price",
-    "keywords": ["zinc", "LME", "price"],
-    "expected_answer": "LME锌期货价格数据"
+    "question": "铁矿石价格近期走势",
+    "expected_answer": "铁矿石期货价格走势及供需分析"
   },
   {
     "id": 10,
-    "question": "全球锂矿供应新闻",
-    "source_type": "news",
-    "keywords": ["lithium", "supply", "mining"],
-    "expected_answer": "锂矿供应相关新闻报道"
+    "question": "China NDRC rare earth industry policy",
+    "expected_answer": "国家发改委稀土产业相关政策"
   },
   {
     "id": 11,
-    "question": "澳洲对华关键矿产出口政策",
-    "source_type": "policy",
-    "keywords": ["Australia", "China", "critical minerals", "export"],
-    "expected_answer": "澳洲对关键矿产的出口政策"
+    "question": "锌价近期市场表现",
+    "expected_answer": "锌期货价格走势及市场分析"
   },
   {
     "id": 12,
-    "question": "金矿开采最新报道",
-    "source_type": "news",
-    "keywords": ["gold", "mining"],
-    "expected_answer": "金矿开采相关新闻报道"
+    "question": "Mining M&A activities in the copper sector",
+    "expected_answer": "铜矿行业并购交易新闻"
   },
   {
     "id": 13,
-    "question": "锂期货价格走势",
-    "source_type": "price",
-    "keywords": ["lithium", "SHFE", "price"],
-    "expected_answer": "SHFE锂期货价格数据"
+    "question": "中国自然资源部矿产资源管理新规",
+    "expected_answer": "中国自然资源部矿产资源管理政策法规"
   },
   {
     "id": 14,
-    "question": "稀土开采对环境影响的报道",
-    "source_type": "news",
-    "keywords": ["rare earth", "environment", "mining"],
-    "expected_answer": "稀土开采环境影响相关新闻"
+    "question": "Nickel price movement on LME this month",
+    "expected_answer": "LME镍期货价格月度走势"
   },
   {
     "id": 15,
-    "question": "中国稀土出口配额政策",
-    "source_type": "policy",
-    "keywords": ["稀土", "出口配额", "政策"],
-    "expected_answer": "关于稀土出口配额的政策信息"
+    "question": "What are the latest developments in lithium supply?",
+    "expected_answer": "锂矿供应新闻和新项目进展"
   },
   {
     "id": 16,
-    "question": "铜矿工人罢工新闻",
-    "source_type": "news",
-    "keywords": ["strike", "copper", "mine"],
-    "expected_answer": "铜矿工人罢工相关报道"
+    "question": "澳洲矿产资源政策对中国企业投资的影响",
+    "expected_answer": "澳大利亚外国投资审查和矿产资源政策"
   },
   {
     "id": 17,
-    "question": "澳洲稀土资源战略定位",
-    "source_type": "policy",
-    "keywords": ["rare earth", "Australia", "strategy"],
-    "expected_answer": "澳洲对稀土资源的战略定位和政策"
+    "question": "Mining industry environmental regulations update",
+    "expected_answer": "矿业环保法规和可持续发展政策更新"
   },
   {
     "id": 18,
-    "question": "有色金属价格整体走势",
-    "source_type": "price",
-    "keywords": ["copper", "zinc", "nickel", "price"],
-    "expected_answer": "LME有色金属整体价格数据"
+    "question": "钴和稀土供应链最新情况",
+    "expected_answer": "钴和稀土元素供应链新闻"
   },
   {
     "id": 19,
-    "question": "矿业能源消耗与减排新闻",
-    "source_type": "news",
-    "keywords": ["energy", "emission", "mining"],
-    "expected_answer": "矿业能耗和减排相关新闻报道"
+    "question": "Global iron ore production and trade news",
+    "expected_answer": "全球铁矿石生产和贸易相关报道"
   },
   {
     "id": 20,
-    "question": "战略矿产供应链政策",
-    "source_type": "policy",
-    "keywords": ["critical minerals", "supply chain", "policy"],
-    "expected_answer": "关键矿产供应链相关政策"
+    "question": "Compare copper and aluminum price trends",
+    "expected_answer": "铜铝价格走势对比分析"
   }
 ]

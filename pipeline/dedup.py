@@ -1,18 +1,17 @@
-"""Content dedup logic."""
+"""内容去重逻辑。"""
 
 import json
-from pathlib import Path
 from pipeline.config import CLEAN_DIR
 
 
 class DedupChecker:
-    """Tracks content_hash values to skip duplicates within a run + across prior runs."""
+    """追踪 content_hash 值，避免本次运行及历史运行中的重复。"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._seen: set[str] = set()
         self._load_prior()
 
-    def _load_prior(self):
+    def _load_prior(self) -> None:
         if not CLEAN_DIR.exists():
             return
         for f in sorted(CLEAN_DIR.glob("*.jsonl")):
@@ -31,5 +30,5 @@ class DedupChecker:
     def is_duplicate(self, content_hash: str) -> bool:
         return content_hash in self._seen
 
-    def mark_seen(self, content_hash: str):
+    def mark_seen(self, content_hash: str) -> None:
         self._seen.add(content_hash)

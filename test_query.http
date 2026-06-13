@@ -1,0 +1,82 @@
+### 铜矿新闻
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "最近30天mining.com上关于铜矿的主要报道有哪些？"
+}
+
+### 铜价走势
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "LME铜价最近一周的走势如何？"
+}
+
+### EU政策
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "EU critical raw materials policy"
+}
+
+### 镍价趋势
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "镍价近期变化趋势"
+}
+
+### Mining M&A
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "Mining M&A news"
+}
+
+### 铁矿石
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "铁矿石价格近期走势"
+}
+
+### 中国矿产资源政策
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "中国矿产资源管理新政策"
+}
+
+### 锌价行情
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "锌价最新行情"
+}
+
+### 锂供应新闻
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "Lithium mining supply news"
+}
+
+### 铜矿罢工
+POST http://localhost:8000/query
+Content-Type: application/json
+
+{
+  "question": "铜矿工人罢工新闻"
+}
+
+### 健康检查
+GET http://localhost:8000/health

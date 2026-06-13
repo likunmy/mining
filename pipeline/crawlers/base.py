@@ -1,11 +1,13 @@
+"""爬虫基类。"""
+
 import hashlib
 import json
 import logging
 import time
 from abc import ABC, abstractmethod
 from datetime import datetime, timezone
-from pathlib import Path
 from random import choice
+from typing import Any
 
 import httpx
 
@@ -21,11 +23,11 @@ logger = logging.getLogger(__name__)
 
 
 class BaseCrawler(ABC):
-    """Base class for all crawlers."""
+    """所有爬虫的基类。"""
 
     source_type: str = ""  # "news" | "policy" | "price"
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.client = httpx.Client(
             timeout=REQUEST_TIMEOUT,
             follow_redirects=True,
@@ -33,18 +35,29 @@ class BaseCrawler(ABC):
         )
 
     @abstractmethod
-    def crawl(self, max_count: int = 200) -> list[dict]:
-        """Crawl source and return list of raw records."""
+    def crawl(self, max_count: int = 200) -> list[dict[str, Any]]:
+        """爬取数据源，返回原始记录列表。"""
         ...
 
     def fetch(self, url: str) -> str | None:
-        """Fetch URL content with error handling."""
+        """抓取 URL 内容（含错误处理）。"""
         try:
             resp = self.client.get(url)
             resp.raise_for_status()
             return resp.text
         except Exception as e:
-            logger.warning("fetch failed: %s — %s", url, e)
+            logger.warning("抓取失败: %s — %s", url, e)
+            return None
+
+    def post(self, url: str, data: dict[str, str] | str | None = None,
+             headers: dict[str, str] | None = None) -> str | None:
+        """POST 请求（含错误处理）。"""
+        try:
+            resp = self.client.post(url, content=data, headers=headers)
+            resp.raise_for_status()
+            return resp.text
+        except Exception as e:
+            logger.warning("POST 失败: %s — %s", url, e)
             return None
 
     def make_id(self, url: str) -> str:
@@ -55,7 +68,7 @@ class BaseCrawler(ABC):
         normalized = " ".join(text.strip().split())
         return hashlib.sha256(normalized.encode()).hexdigest()
 
-    def save_raw(self, records: list[dict], name: str | None = None):
+    def save_raw(self, records: list[dict[str, Any]], name: str | None = None) -> None:
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         tag = name or self.source_type
         path = RAW_DIR / f"{tag}_{ts}.jsonl"
@@ -63,17 +76,17 @@ class BaseCrawler(ABC):
         with open(path, "w", encoding="utf-8") as f:
             for r in records:
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
-        logger.info("saved %d records → %s", len(records), path)
+        logger.info("已保存 %d 条记录 → %s", len(records), path)
 
-    def log_error(self, url: str, msg: str):
+    def log_error(self, url: str, msg: str) -> None:
         entry = {"url": url, "error": msg, "ts": datetime.now().isoformat()}
         with open(ERROR_LOG, "a", encoding="utf-8") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-    def save_checkpoint(self, source: str, dt: datetime | None = None):
+    def save_checkpoint(self, source: str, dt: datetime | None = None) -> None:
         try:
             with open(CHECKPOINT, "r") as f:
-                cp = json.load(f)
+                cp: dict[str, str] = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             cp = {}
         cp[source] = (dt or datetime.now()).isoformat()
@@ -83,17 +96,29 @@ class BaseCrawler(ABC):
     def load_checkpoint(self, source: str) -> datetime | None:
         try:
             with open(CHECKPOINT, "r") as f:
-                cp = json.load(f)
+                cp: dict[str, str] = json.load(f)
             val = cp.get(source)
             return datetime.fromisoformat(val) if val else None
         except (FileNotFoundError, json.JSONDecodeError):
             return None
 
-    def close(self):
+    def close(self) -> None:
         self.client.close()
 
-    def __enter__(self):
+    def sleep(self, seconds: float) -> None:
+        time.sleep(seconds)
+
+    @staticmethod
+    def sanitize_text(text: str) -> str:
+        """清洗爬取文本：替换非标准空白字符、统一编码问题。"""
+        text = text.replace("\xa0", " ")   # non-breaking space
+        text = text.replace("　", " ")  # CJK full-width space
+        text = text.replace("\r\n", "\n")
+        text = text.replace("\r", "\n")
+        return text
+
+    def __enter__(self) -> "BaseCrawler":
         return self
 
-    def __exit__(self, *args):
+    def __exit__(self, *args: Any) -> None:
         self.close()

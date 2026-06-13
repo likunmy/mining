@@ -1,6 +1,3 @@
-from pathlib import Path
+"""Serve-layer config — re-exports pipeline config as single source of truth."""
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-CHROMA_DIR = str(BASE_DIR / "chroma_data")
-CHROMA_COLLECTION = "mining_aggregator"
-EMBEDDING_MODEL = "BAAI/bge-small-zh-v1.5"
+from pipeline.config import BASE_DIR, CHROMA_DIR, CHROMA_COLLECTION, EMBEDDING_MODEL  # noqa: F401
