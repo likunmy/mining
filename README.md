@@ -88,7 +88,7 @@ docs/             设计文档与实现计划
 | 类别 | 源 | 策略 |
 |------|-----|------|
 | 新闻 | mining.com (RSS + Sitemap) | feedparser + trafilatura 全文提取 |
-| 政策 | EU / IEA / 中国自然资源部 / 国家发改委 | BeautifulSoup + trafilatura |
+| 政策 | 中国稀土学会 / 澳洲政府政策 | handler 分发 + pypdf + trafilatura |
 | 价格 | SHFE / DCE / GFEX 期货（新浪财经 API） | 实时日 K 线数据|
 
 ## 数据 Schema
