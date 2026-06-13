@@ -1,0 +1,29 @@
+{
+  "avg_recall@5": 0.5,
+  "avg_faithfulness": 0.5,
+  "num_questions": 2,
+  "per_item": [
+    {
+      "id": 1,
+      "question": "最近30天mining.com上关于铜矿的主要报道有哪些？",
+      "recall@5": 0.0,
+      "faithfulness": 0.0,
+      "generated_answer": "No relevant documents found.",
+      "top5_hits": []
+    },
+    {
+      "id": 2,
+      "question": "EU critical raw materials policy",
+      "recall@5": 1.0,
+      "faithfulness": 1.0,
+      "generated_answer": "Based on the context, the EU's critical raw materials policy includes the Critical Raw Materials Act (CRM Act) to ensure secure and sustainable supply, and the European Raw Materials Alliance launched via the 2020 Communication. In 2023, a fifth list of 34 critical raw materials was published, while a 2019 report addressed recovery of critical materials from mining waste.",
+      "top5_hits": [
+        "Critical raw materials",
+        "Critical raw materials",
+        "Critical raw materials",
+        "Critical raw materials",
+        "Critical raw materials"
+      ]
+    }
+  ]
+}
