@@ -78,9 +78,7 @@ serve/            FastAPI RAG 检索服务
   └─ generator.py LLM 回答生成（DeepSeek）
 eval/             评估套件（RAGAS: recall@5 + faithfulness，20 条 ground truth）
 llm/              DeepSeek API 调用封装
-tests/            单元测试
 data/             （原始 JSONL / 清洗后 JSONL）
-docs/             设计文档与实现计划
 ```
 
 ## 数据源
